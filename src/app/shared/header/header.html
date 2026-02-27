@@ -1,0 +1,120 @@
+<!--Header component template :Top bar-->
+<header id="site-header" [class.scrolled]="isScrolled()" role="banner">
+  <div class="top-bar" aria-label="Top info bar">
+    <div class="top-bar-inner">
+      <div class="top-bar-left">
+        <div class="top-bar-contact"><i class="fa fa-phone"></i><a href="tel:+254700123456" aria-label="Call support">+254700123456</a></div>
+        <div class="top-bar-divider top-bar-divider--md" aria-hidden="true"></div>
+        <div class="top-bar-contact top-bar-contact--md"><i class="fa fa-envelope"></i><a href="mailto:support@techshop.com">support&#64;e-commerce.com</a></div>        
+      </div>
+      <nav class="top-bar-right" aria-label="Quick links">
+        <a href="#" class="top-bar-link">Customer</a>
+        <a href="#" class="top-bar-link">Vendor</a>
+        <a href="#" class="top-bar-link">Admin</a>
+        <a href="#" class="top-bar-link">Blog</a>
+        <a href="#" class="top-bar-link">Support</a>
+      </nav>
+    </div>
+  </div>
+
+  <!--Main Header Content-->
+  <div class="main-header">
+    <div class="main-header-inner">
+      <a href="/" class="logo"><img src="Logo.webp" alt="E-Commerce System" class="image-logo"/>
+        <span class="logo-text">E-Commerce<span class="logo-text-accent"> Platform</span></span>
+      </a>
+      <div class="search-bar" role="search">
+        <div class="search-bar-category" tabindex="0"  aria-haspopup="true"> Explore All</div> 
+        <input type="search" class="search-bar-input" placeholder="Search products, brands &amp; categories…" aria-label="Search products" autocomplete="off" [(ngModel)]="searchQuery" />
+        <button class="search-bar-btn" type="submit" (click)="onSearch($event)" aria-label="Submit search"><i class="fa fa-search"></i></button>
+      </div>
+      <!--Header actions-->
+      <div class="header-actions">
+        <a href="/signin" class="btn-auth btn-signin" aria-label="Sign In"><i class="fa fa-user"></i> Sign In</a>
+        <a href="/signup" class="btn-auth btn-signup" aria-label="Sign Up">Sign Up</a>
+        <a href="/messages" class="hdr-icon-btn" [attr.aria-label]="'Messages (' + messageCount() + ' unread)'"> <i class="fa fa-comment-dots"></i>
+          <span class="hdr-icon-btn-label">Messages</span>  <span class="badge-dot" aria-hidden="true">{{ messageCount() }}</span>   
+        </a>
+        <a href="/trade-assurance" class="hdr-icon-btn"> <i class="fa fa-shield-halved"></i><span class="hdr-icon-btn-label">Assurance</span> </a>
+        <a href="/cart" class="hdr-icon-btn" [attr.aria-label]="'Shopping cart, ' + cartCount() + ' items'">
+          <i class="fa fa-bag-shopping"></i>
+          <span class="hdr-icon-btn-label">Cart</span>
+          <span class="badge-dot" aria-hidden="true">{{ cartCount() }}</span>
+        </a>
+        <!--Mobile hamburger-->
+        <button class="hamburger" [class.open]="drawerOpen()" id="hamburger-btn" aria-label="Open navigation menu" [attr.aria-expanded]="hamburgerExpanded" aria-controls="mobile-drawer" (click)="toggleDrawer()">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!--Navigation Bar-->
+  <nav class="nav-bar" aria-label="Main navigation">
+    <div class="nav-bar-inner">
+      <div class="nav-item"> <a href="/" class="nav-link-item nav-link-item--active" aria-current="page"><i class="fa fa-house"></i> Home</a></div>
+      <!--Categories dropdown-->
+      <div class="nav-item nav-item--dropdown" aria-haspopup="true">
+        <a href="/categories" class="nav-link-item">Categories <i class="fa fa-chevron-down nav-link-item-chev"></i></a>
+        <div class="dropdown-mega" role="menu" aria-label="Categories dropdown">
+          <div class="dropdown-mega-grid">
+            <div *ngFor="let group of categoryGroups" class="dropdown-group">
+              <h4 class="dropdown-group-title">{{ group.title }}</h4>
+              <ul class="dropdown-group-list">
+                <li *ngFor="let item of group.items">
+                  <a [href]="item.path" role="menuitem"><i class="fa {{ item.icon }}"></i> {{ item.label }}</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item"><a href="/marketplace" class="nav-link-item">MarkertPlace <span class="nav-tag">Hot</span></a></div>
+      <div class="nav-item"><a href="/services" class="nav-link-item">Services</a></div>
+      <div class="nav-item"><a href="/Vendors" class="nav-link-item">Vendors</a></div>
+      <div class="nav-item"><a href="/about-us" class="nav-link-item">About-Us</a></div>
+      <div class="nav-item"><a href="/blog" class="nav-link-item">Blog</a></div>
+      <div class="nav-item"><a href="/Contact" class="nav-link-item">Contact Us</a></div>
+      <div class="nav-spacer"></div>
+      <!--Extra nav links-->
+      <div class="nav-extra">
+        <a href="/trade-assurance"><i class="fa fa-shield-halved"></i> Trade Assurance</a>
+        <a href="/help"><i class="fa fa-circle-question"></i> Help Center</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<!--MOBILE DRAWER-->
+<div class="mobile-drawer" [class.open]="drawerOpen()" id="mobile-drawer" role="dialog" aria-label="Mobile navigation" aria-modal="true">
+  <div class="drawer-overlay" (click)="closeDrawer()"></div>
+  <div class="drawer-panel">
+    <!--Drawer header-->
+    <div class="drawer-head">
+      <a href="/" class="logo"><img src="Logo.webp" alt="E-Commerce System" class="image-logo"/>
+        <span class="logo-text" style="color: white;">E-Commerce<span class="logo-text-accent"> Platform</span></span>
+      </a>
+      <button class="drawer-close" (click)="closeDrawer()" aria-label="Close navigation menu"><i class="fa fa-xmark"></i></button>
+    </div>
+    <div class="drawer-search">
+      <form role="search" aria-label="Mobile search" (submit)="onDrawerSearch($event)">
+        <input type="search" placeholder="Search products…" aria-label="Search products" [(ngModel)]="searchQuery" name="mobileSearch" />
+        <button type="submit" aria-label="Submit search"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <!--Drawer navigation-->
+    <nav class="drawer-nav" aria-label="Mobile main navigation">
+      <a *ngFor="let link of drawerLinks" [href]="link.path" class="drawer-nav-item">
+        <span class="drawer-nav-item-left">
+          <i class="fa {{ link.icon }}" [style.color]="link.iconColor"></i>
+          {{ link.label }}
+        </span>
+        <i class="fa fa-chevron-right drawer-nav-item-arrow"></i>
+      </a>
+    </nav>
+    <div class="drawer-footer">
+      <a href="/signin" class="drawer-footer-signin"><i class="fa fa-user"></i> Sign In</a>
+      <a href="/signup" class="drawer-footer-signup">Sign Up</a>
+    </div>
+
+  </div>
+
+</div>
