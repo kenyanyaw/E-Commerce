@@ -1,0 +1,142 @@
+.footer {
+  background-color: rgb(47,47,47);
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Newsletter Section */
+.newsletter {
+  text-align: center;
+  padding: 40px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.newsletter h2 {
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin: auto;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.newsletter-form button {
+  padding: 12px 20px;
+  border: none;
+  background-color: #ff7a00;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  transition: 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #e56d00;
+}
+
+/* Footer Content */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px 10%;
+}
+
+.footer-column {
+  flex: 1 1 220px;
+  margin: 20px;
+}
+
+.footer-column h3 {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #ff7a00;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #cccccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #ffffff;
+}
+
+/* Social Icons */
+.social-icons a {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 8px 12px;
+  background-color: #555;
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  background-color: #ff7a00;
+}
+
+/* Payments */
+.payment-title {
+  margin-top: 20px;
+}
+
+.payments span {
+  display: inline-block;
+  margin: 5px 5px 0 0;
+  padding: 6px 10px;
+  background-color: #555;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    border-radius: 4px;
+    margin: 5px 0;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    padding: 30px;
+  }
+}
