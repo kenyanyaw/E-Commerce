@@ -170,4 +170,4 @@ export class Header implements OnDestroy {
   ngOnDestroy(): void {
     document.body.style.overflow = '';
   }
-}
+}  
