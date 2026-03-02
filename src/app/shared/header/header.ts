@@ -1,11 +1,12 @@
 import { Component, HostListener, signal, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { RouterLink, RouterLinkActive } from '@angular/router'; 
+  
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink, RouterLinkActive],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
@@ -104,18 +105,18 @@ export class Header implements OnDestroy {
 ];
   /*  MOBILE DRAWER LINKS  */
   readonly drawerLinks = [
-    { label: 'Home', path: '/', icon: 'fa-house', iconColor: '#0f4fff' },
-    { label: 'Categories', path: '/categories', icon: 'fa-grip', iconColor: '#0f4fff' },
-    { label: 'MarketPlace', path: '/marketplace', icon: 'fa-tag', iconColor: '#ff4a1c' },
-    { label: 'Services', path: '/services', icon: 'fa-star', iconColor: '#0f4fff' },
-    { label: 'Vendors', path: '/vendors', icon: 'fa-trophy', iconColor: '#0f4fff' },
-    { label: 'About Us', path: '/about-us', icon: 'fa-user', iconColor: '#0f4fff' },
-    { label: 'Messages', path: '/messages', icon: 'fa-comment-dots', iconColor: '#0f4fff' },
-    { label: 'Cart (5)', path: '/cart', icon: 'fa-bag-shopping', iconColor: '#0f4fff' },
-    { label: 'Trade Assurance', path: '/trade-assurance', icon: 'fa-shield-halved', iconColor: '#0f4fff' },
-    { label: 'Contact Us', path: '/contact-us', icon: 'fa-phone', iconColor: '#0f4fff' },
-    { label: 'Blog', path: '/blog', icon: 'fa-newspaper', iconColor: '#0f4fff' },
-    { label: 'Support', path: '/support', icon: 'fa-circle-question', iconColor: '#0f4fff' },
+    { label: 'Home', path: '/', icon: 'fa-house', iconColor: '#FF0E07' },
+    { label: 'All Categories', path: '/categories', icon: 'fa-grip', iconColor: '#FF0E07' },
+    { label: 'MarketPlace', path: '/marketplace', icon: 'fa-tag', iconColor: '#FF0E07' },
+    { label: 'Services', path: '/services', icon: 'fa-star', iconColor: '#FF0E07' },
+    { label: 'Vendors', path: '/vendors', icon: 'fa-trophy', iconColor: '#FF0E07' },
+    { label: 'Flash Sales', path: '/flash-sales', icon: 'fa-bolt', iconColor: '#FF0E07' },
+    { label: "What's New", path: '/blog', icon: 'fa-newspaper', iconColor: '#FF0E07' },
+    { label: 'Messages', path: '/messages', icon: 'fa-comment-dots', iconColor: '#FF0E07' },
+    { label: 'Cart (5)', path: '/cart', icon: 'fa-bag-shopping', iconColor: '#FF0E07' },
+    { label: 'Trade Assurance', path: '/trade-assurance', icon: 'fa-shield-halved', iconColor: '#FF0E07' },
+    { label: 'Contact Us', path: '/contact-us', icon: 'fa-phone', iconColor: '#FF0E07' },
+    { label: 'Support', path: '/support', icon: 'fa-circle-question', iconColor: '#FF0E07' },
   ];
 
   /* ───────── SCROLL BEHAVIOR ───────── */

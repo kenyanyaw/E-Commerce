@@ -1,1 +1,383 @@
-<p>home works!</p>
+<div class="hero-slider-host">
+
+  <!-- TOP ORANGE BAR -->
+  <div class="top-bar"></div>
+
+  <!-- HERO WRAPPER -->
+  <div class="hero-wrapper">
+
+    <!-- SLIDER AREA -->
+    <div
+      class="slider-area"
+      (mouseenter)="pauseAutoPlay()"
+      (mouseleave)="resumeAutoPlay()"
+      (touchstart)="onTouchStart($event)"
+      (touchend)="onTouchEnd($event)"
+    >
+      <!-- SLIDES TRACK -->
+      <div class="slides-track" [style.transform]="trackTransform">
+
+        <!-- SLIDE 1 – Laptop -->
+        <div class="slide slide-1" [class.active]="currentIndex === 0">
+          <div class="slide-image">
+            <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" class="slide-svg">
+              <rect x="40" y="20" width="400" height="260" rx="14" fill="#1a1a1a"/>
+              <rect x="55" y="35" width="370" height="230" rx="6" fill="#fff"/>
+              <rect x="55" y="35" width="370" height="230" rx="6" fill="url(#screenGrad1)"/>
+              <defs>
+                <linearGradient id="screenGrad1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#e8f4fd"/>
+                  <stop offset="100%" stop-color="#c8dff0"/>
+                </linearGradient>
+              </defs>
+              <rect x="80" y="65" width="180" height="12" rx="3" fill="#bdd5ea" opacity="0.7"/>
+              <rect x="80" y="85" width="120" height="8" rx="3" fill="#cde2f0" opacity="0.5"/>
+              <rect x="80" y="105" width="220" height="8" rx="3" fill="#cde2f0" opacity="0.4"/>
+              <rect x="80" y="125" width="160" height="8" rx="3" fill="#cde2f0" opacity="0.3"/>
+              <!-- Keyboard base -->
+              <rect x="20" y="282" width="440" height="22" rx="4" fill="#2a2a2a"/>
+              <rect x="10" y="300" width="460" height="10" rx="5" fill="#111"/>
+              <!-- Trackpad -->
+              <rect x="180" y="285" width="120" height="12" rx="3" fill="#333"/>
+              <!-- Keyboard keys detail -->
+              <rect x="40" y="288" width="12" height="6" rx="1" fill="#444"/>
+              <rect x="58" y="288" width="12" height="6" rx="1" fill="#444"/>
+              <rect x="76" y="288" width="12" height="6" rx="1" fill="#444"/>
+              <rect x="94" y="288" width="12" height="6" rx="1" fill="#444"/>
+              <rect x="330" y="288" width="12" height="6" rx="1" fill="#444"/>
+              <rect x="348" y="288" width="12" height="6" rx="1" fill="#444"/>
+              <rect x="366" y="288" width="12" height="6" rx="1" fill="#444"/>
+              <rect x="384" y="288" width="12" height="6" rx="1" fill="#444"/>
+              <!-- Screen content mockup -->
+              <rect x="70" y="55" width="340" height="200" rx="3" fill="#dceef8" opacity="0.4"/>
+              <rect x="85" y="70" width="100" height="40" rx="4" fill="#4a90d9" opacity="0.5"/>
+              <rect x="195" y="70" width="200" height="8" rx="2" fill="#bdd5ea"/>
+              <rect x="195" y="85" width="160" height="6" rx="2" fill="#cde2f0" opacity="0.7"/>
+              <rect x="195" y="97" width="180" height="6" rx="2" fill="#cde2f0" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="slide-text">
+            <p class="slide-eyebrow">Save up to a $400</p>
+            <h1 class="slide-title">On Selected<br/>Laptops &amp;<br/>Desktop Or<br/><span class="highlight">Smartphone</span></h1>
+            <p class="slide-terms">Terms and Condition Apply</p>
+            <a href="#" class="btn-shop">
+              <svg class="cart-icon" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM5.1 4H2V2H0v2h2l3.6 7.59L4.25 14c-.16.28-.25.61-.25.96C4 16.1 4.9 17 6 17h14v-2H6.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.46 4H5.1z"/></svg>
+              Shop Now
+            </a>
+          </div>
+        </div>
+
+        <!-- SLIDE 2 – Online Shopping Desktop -->
+        <div class="slide slide-2" [class.active]="currentIndex === 1">
+          <div class="slide-image">
+            <svg viewBox="0 0 480 340" xmlns="http://www.w3.org/2000/svg" class="slide-svg">
+              <!-- Monitor body -->
+              <rect x="60" y="20" width="360" height="250" rx="12" fill="#2c2c2c"/>
+              <rect x="72" y="32" width="336" height="220" rx="6" fill="#fff"/>
+              <!-- Browser chrome bar -->
+              <rect x="72" y="32" width="336" height="30" rx="6" fill="#4a90d9"/>
+              <rect x="72" y="48" width="336" height="14" fill="#4a90d9"/>
+              <!-- Traffic lights -->
+              <circle cx="92" cy="47" r="6" fill="#e74c3c"/>
+              <circle cx="110" cy="47" r="6" fill="#f39c12"/>
+              <circle cx="128" cy="47" r="6" fill="#27ae60"/>
+              <!-- URL bar -->
+              <rect x="145" y="40" width="200" height="14" rx="7" fill="rgba(255,255,255,0.25)"/>
+              <!-- Shopping cart illustration -->
+              <g transform="translate(110, 72)">
+                <!-- Cart handle -->
+                <path d="M0 8h22l16 70" fill="none" stroke="#2980b9" stroke-width="7" stroke-linecap="round"/>
+                <!-- Cart body -->
+                <path d="M18 18h145l-22 82H40z" fill="#2980b9" stroke="#1a5276" stroke-width="2"/>
+                <!-- Wheels -->
+                <circle cx="58" cy="114" r="15" fill="#2980b9" stroke="#1a5276" stroke-width="2.5"/>
+                <circle cx="58" cy="114" r="6" fill="#1a5276"/>
+                <circle cx="118" cy="114" r="15" fill="#2980b9" stroke="#1a5276" stroke-width="2.5"/>
+                <circle cx="118" cy="114" r="6" fill="#1a5276"/>
+                <!-- Box in cart -->
+                <rect x="42" y="28" width="72" height="58" rx="5" fill="#e67e22"/>
+                <rect x="42" y="28" width="72" height="12" rx="5" fill="#d35400"/>
+                <line x1="78" y1="28" x2="78" y2="86" stroke="#d35400" stroke-width="2"/>
+                <!-- Buy button -->
+                <rect x="118" y="48" width="82" height="36" rx="7" fill="#27ae60"/>
+                <text x="159" y="72" text-anchor="middle" fill="#fff" font-family="Barlow,sans-serif" font-weight="800" font-size="18">BUY</text>
+                <!-- Mouse cursor arrow -->
+                <path d="M194 76 l0 24 l6-8 l7 15 l4-2 l-7-15 l10 0z" fill="#fff" stroke="#333" stroke-width="1.2"/>
+              </g>
+              <!-- Monitor stand -->
+              <rect x="205" y="270" width="70" height="22" rx="5" fill="#3a3a3a"/>
+              <rect x="175" y="288" width="130" height="14" rx="7" fill="#222"/>
+            </svg>
+          </div>
+          <div class="slide-text">
+            <p class="slide-eyebrow">Save up to a $200</p>
+            <h1 class="slide-title">On Selected<br/>Laptops &amp;<br/>Desktop Or<br/><span class="highlight">Smartphone</span></h1>
+            <p class="slide-terms">Terms and Condition Apply</p>
+            <a href="#" class="btn-shop">
+              <svg class="cart-icon" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM5.1 4H2V2H0v2h2l3.6 7.59L4.25 14c-.16.28-.25.61-.25.96C4 16.1 4.9 17 6 17h14v-2H6.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.46 4H5.1z"/></svg>
+              Shop Now
+            </a>
+          </div>
+        </div>
+
+        <!-- SLIDE 3 – Smartphone -->
+        <div class="slide slide-3" [class.active]="currentIndex === 2">
+          <div class="slide-image">
+            <svg viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg" class="slide-svg slide-svg-phone">
+              <defs>
+                <linearGradient id="phoneScreen" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#1a3a4f"/>
+                  <stop offset="100%" stop-color="#0d2233"/>
+                </linearGradient>
+                <linearGradient id="phoneBg" x1="0" y1="0" x2="0.3" y2="1">
+                  <stop offset="0%" stop-color="#2c2c2e"/>
+                  <stop offset="100%" stop-color="#1a1a1c"/>
+                </linearGradient>
+              </defs>
+              <!-- Phone outer body -->
+              <rect x="30" y="10" width="240" height="480" rx="36" fill="url(#phoneBg)"/>
+              <!-- Phone inner bezel -->
+              <rect x="36" y="16" width="228" height="468" rx="30" fill="#111"/>
+              <!-- Screen area -->
+              <rect x="40" y="52" width="220" height="406" rx="10" fill="url(#phoneScreen)"/>
+              <!-- Dynamic island / notch -->
+              <rect x="105" y="22" width="90" height="24" rx="12" fill="#000"/>
+              <circle cx="170" cy="34" r="5" fill="#1a1a1a"/>
+              <!-- Status bar -->
+              <rect x="50" y="60" width="60" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+              <rect x="190" y="60" width="60" height="6" rx="3" fill="rgba(255,255,255,0.3)"/>
+              <!-- Map background on screen -->
+              <path d="M40 200 Q150 160 260 200 L260 458 Q150 435 40 458z" fill="#1d4060" opacity="0.5"/>
+              <path d="M40 300 Q150 270 260 300 L260 458 Q150 445 40 458z" fill="#1a3555" opacity="0.4"/>
+              <!-- App grid icons -->
+              <rect x="58" y="82" width="44" height="44" rx="11" fill="#e74c3c"/>
+              <rect x="58" y="82" width="44" height="14" rx="5" fill="#c0392b"/>
+              <rect x="118" y="82" width="44" height="44" rx="11" fill="#3498db"/>
+              <rect x="118" y="82" width="44" height="14" rx="5" fill="#2980b9"/>
+              <rect x="178" y="82" width="44" height="44" rx="11" fill="#27ae60"/>
+              <rect x="178" y="82" width="44" height="14" rx="5" fill="#1e8449"/>
+              <rect x="58" y="138" width="44" height="44" rx="11" fill="#f39c12"/>
+              <rect x="58" y="138" width="44" height="14" rx="5" fill="#d68910"/>
+              <rect x="118" y="138" width="44" height="44" rx="11" fill="#9b59b6"/>
+              <rect x="118" y="138" width="44" height="14" rx="5" fill="#7d3c98"/>
+              <rect x="178" y="138" width="44" height="44" rx="11" fill="#1abc9c"/>
+              <rect x="178" y="138" width="44" height="14" rx="5" fill="#17a589"/>
+              <!-- Large feature card on screen -->
+              <rect x="50" y="200" width="200" height="110" rx="12" fill="rgba(255,255,255,0.08)"/>
+              <rect x="50" y="200" width="200" height="36" rx="12" fill="rgba(255,255,255,0.12)"/>
+              <rect x="62" y="212" width="80" height="10" rx="3" fill="rgba(255,255,255,0.6)"/>
+              <rect x="62" y="248" width="120" height="8" rx="3" fill="rgba(255,255,255,0.3)"/>
+              <rect x="62" y="264" width="90" height="8" rx="3" fill="rgba(255,255,255,0.2)"/>
+              <rect x="62" y="280" width="60" height="20" rx="10" fill="#f5a623"/>
+              <!-- Bottom dock -->
+              <rect x="50" y="390" width="200" height="56" rx="14" fill="rgba(255,255,255,0.07)"/>
+              <rect x="64" y="402" width="36" height="36" rx="9" fill="#e74c3c"/>
+              <rect x="112" y="402" width="36" height="36" rx="9" fill="#3498db"/>
+              <rect x="160" y="402" width="36" height="36" rx="9" fill="#27ae60"/>
+              <rect x="208" y="402" width="36" height="36" rx="9" fill="#f39c12"/>
+              <!-- Home indicator bar -->
+              <rect x="110" y="460" width="80" height="5" rx="3" fill="rgba(255,255,255,0.4)"/>
+              <!-- Side buttons -->
+              <rect x="26" y="100" width="6" height="40" rx="3" fill="#3a3a3c"/>
+              <rect x="26" y="150" width="6" height="60" rx="3" fill="#3a3a3c"/>
+              <rect x="26" y="220" width="6" height="60" rx="3" fill="#3a3a3c"/>
+              <rect x="268" y="130" width="6" height="80" rx="3" fill="#3a3a3c"/>
+            </svg>
+          </div>
+          <div class="slide-text">
+            <p class="slide-eyebrow">Save up to a $150</p>
+            <h1 class="slide-title">On Selected<br/>Flagship<br/>Phones &amp;<br/><span class="highlight">Tablets</span></h1>
+            <p class="slide-terms">Terms and Condition Apply</p>
+            <a href="#" class="btn-shop">
+              <svg class="cart-icon" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM5.1 4H2V2H0v2h2l3.6 7.59L4.25 14c-.16.28-.25.61-.25.96C4 16.1 4.9 17 6 17h14v-2H6.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.46 4H5.1z"/></svg>
+              Shop Now
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /slides-track -->
+
+      <!-- Dot indicators -->
+      <div class="dots">
+        <button
+          *ngFor="let slide of slides; let i = index"
+          class="dot"
+          [class.active]="currentIndex === i"
+          (click)="goTo(i)"
+          [attr.aria-label]="'Go to slide ' + (i + 1)"
+        ></button>
+      </div>
+
+      <!-- Prev / Next nav buttons -->
+      <div class="slider-nav">
+        <button class="nav-btn" (click)="prevSlide()" aria-label="Previous slide">&#8592;</button>
+        <button class="nav-btn" (click)="nextSlide()" aria-label="Next slide">&#8594;</button>
+      </div>
+
+    </div><!-- /slider-area -->
+
+    <!-- RIGHT PROMO PANEL -->
+    <div class="promo-panel">
+      <div class="promo-tags">
+        <div class="tag-save">Save $48.00</div>
+        <div class="tag-special">Special Offer</div>
+      </div>
+
+      <div class="promo-image-wrap">
+        <!-- Person with phone SVG illustration -->
+        <svg viewBox="0 0 260 420" xmlns="http://www.w3.org/2000/svg" class="promo-svg">
+          <defs>
+            <linearGradient id="promoBg" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#9ba8b2"/>
+              <stop offset="100%" stop-color="#6d7a85"/>
+            </linearGradient>
+            <linearGradient id="skinGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#f0c5a0"/>
+              <stop offset="100%" stop-color="#d4956b"/>
+            </linearGradient>
+            <linearGradient id="hairGrad" x1="0" y1="0" x2="0.5" y2="1">
+              <stop offset="0%" stop-color="#e8b86d"/>
+              <stop offset="100%" stop-color="#c4894a"/>
+            </linearGradient>
+          </defs>
+          <!-- Background -->
+          <rect width="260" height="420" fill="url(#promoBg)"/>
+          <!-- Subtle wall line -->
+          <line x1="0" y1="310" x2="260" y2="310" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
+          <!-- Body / red top -->
+          <ellipse cx="130" cy="330" rx="82" ry="95" fill="#c0392b"/>
+          <ellipse cx="130" cy="290" rx="68" ry="55" fill="#c0392b"/>
+          <!-- Neck -->
+          <rect x="112" y="185" width="36" height="40" rx="8" fill="url(#skinGrad)"/>
+          <!-- Head -->
+          <ellipse cx="130" cy="165" rx="50" ry="55" fill="url(#skinGrad)"/>
+          <!-- Hair top -->
+          <ellipse cx="130" cy="122" rx="52" ry="30" fill="url(#hairGrad)"/>
+          <!-- Hair sides -->
+          <ellipse cx="83" cy="155" rx="18" ry="35" fill="url(#hairGrad)"/>
+          <ellipse cx="177" cy="155" rx="18" ry="35" fill="url(#hairGrad)"/>
+          <!-- Hair back flow -->
+          <path d="M85 150 Q60 200 70 270 Q85 255 90 230 Q95 200 100 185z" fill="#c4894a"/>
+          <!-- Face features -->
+          <!-- Eyes -->
+          <ellipse cx="112" cy="158" rx="8" ry="6" fill="#fff"/>
+          <ellipse cx="148" cy="158" rx="8" ry="6" fill="#fff"/>
+          <circle cx="114" cy="159" r="4" fill="#4a3728"/>
+          <circle cx="150" cy="159" r="4" fill="#4a3728"/>
+          <circle cx="115" cy="157" r="1.5" fill="#fff"/>
+          <circle cx="151" cy="157" r="1.5" fill="#fff"/>
+          <!-- Eyebrows -->
+          <path d="M104 150 Q112 146 120 150" fill="none" stroke="#8a6642" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M140 150 Q148 146 156 150" fill="none" stroke="#8a6642" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Nose -->
+          <path d="M128 165 Q125 175 122 178 Q130 182 138 178 Q135 175 132 165z" fill="#d4956b" opacity="0.5"/>
+          <!-- Smile -->
+          <path d="M118 188 Q130 198 142 188" fill="none" stroke="#c07850" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Right arm extended holding phone -->
+          <path d="M195 265 Q225 255 240 260 Q248 270 242 290 Q230 285 215 295 Q205 300 198 295z" fill="url(#skinGrad)"/>
+          <!-- Left arm resting -->
+          <path d="M65 270 Q40 285 38 310 Q45 320 58 315 Q65 295 75 285z" fill="url(#skinGrad)"/>
+          <!-- Phone in right hand -->
+          <rect x="218" y="200" width="38" height="68" rx="7" fill="#1a1a1a"/>
+          <rect x="221" y="206" width="32" height="56" rx="4" fill="#3a9fd6"/>
+          <!-- Phone screen content -->
+          <rect x="223" y="210" width="28" height="4" rx="2" fill="rgba(255,255,255,0.5)"/>
+          <rect x="223" y="218" width="20" height="3" rx="1" fill="rgba(255,255,255,0.3)"/>
+          <rect x="223" y="224" width="24" height="3" rx="1" fill="rgba(255,255,255,0.2)"/>
+          <!-- Map pin icon on phone -->
+          <path d="M232 235 l5-9 l5 9 q0 6-5 13 q-5-7-5-13z" fill="#f5a623"/>
+          <circle cx="237" cy="235" r="3" fill="#fff"/>
+          <!-- Pointing finger -->
+          <ellipse cx="218" cy="256" rx="12" ry="6" fill="url(#skinGrad)"/>
+          <ellipse cx="215" cy="248" rx="6" ry="10" fill="url(#skinGrad)"/>
+          <!-- Clothing collar detail -->
+          <path d="M105 225 Q130 240 155 225 L148 210 Q130 222 112 210z" fill="#a93226"/>
+          <!-- Blazer lapel hint -->
+          <path d="M80 260 Q100 240 118 255 L112 290 Q90 280 80 260z" fill="#1a252f" opacity="0.35"/>
+          <path d="M180 260 Q160 240 142 255 L148 290 Q170 280 180 260z" fill="#1a252f" opacity="0.35"/>
+        </svg>
+      </div>
+
+      <div class="promo-info">
+        <p class="promo-category">SmartPhone</p>
+        <p class="promo-name">Apple iPad Mini<br/>G2356</p>
+        <div class="promo-pricing">
+          <span class="price-old">$1,250.00</span>
+          <span class="price-new">$1,050.00</span>
+        </div>
+        <button class="btn-cart" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM5.1 4H2V2H0v2h2l3.6 7.59L4.25 14c-.16.28-.25.61-.25.96C4 16.1 4.9 17 6 17h14v-2H6.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63H19c.75 0 1.41-.41 1.75-1.03l3.58-6.49A1 1 0 0023.46 4H5.1z"/></svg>
+          Add To Cart
+        </button>
+      </div>
+    </div><!-- /promo-panel -->
+
+  </div><!-- /hero-wrapper -->
+
+  <!-- FEATURES BAR -->
+  <div class="features-bar">
+
+    <div class="feature-item">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.07-8.5"/>
+      </svg>
+      <div>
+        <p class="feature-title">Free Return</p>
+        <p class="feature-desc">30 days money back guarantee!</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+      <div>
+        <p class="feature-title">Free Shipping</p>
+        <p class="feature-desc">Free shipping on all order</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <div>
+        <p class="feature-title">Support 24/7</p>
+        <p class="feature-desc">We support online 24 hrs a day</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/>
+      </svg>
+      <div>
+        <p class="feature-title">Receive Gift Card</p>
+        <p class="feature-desc">Receive gift all over oder $50</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      <div>
+        <p class="feature-title">Secure Payment</p>
+        <p class="feature-desc">We Value Your Security</p>
+      </div>
+    </div>
+
+    <div class="feature-item">
+      <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+      <div>
+        <p class="feature-title">Online Service</p>
+        <p class="feature-desc">Free return products in 30 days</p>
+      </div>
+    </div>
+
+  </div><!-- /features-bar -->
+
+</div><!-- /hero-slider-host -->
