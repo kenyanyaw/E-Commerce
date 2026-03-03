@@ -1,0 +1,25 @@
+<nav>
+  <button routerLink="/home">Home</button>
+  <button routerLink="/cart">View Cart</button>
+  <button (click)="checkout()">Checkout</button>
+
+  <div class="cart-wrapper" (click)="openCartPage()">
+    🛒
+    <span class="badge" *ngIf="cartService.getCartCount() > 0">
+      {{ cartService.getCartCount() }}
+    </span>
+
+    <div class="mini-cart" [ngClass]="{'show': showCart}">
+      <div *ngIf="cartService.getCartItems().length === 0" class="empty-cart">
+        Cart is empty
+      </div>
+
+      <div *ngFor="let item of cartService.getCartItems(); let i = index" class="mini-item">
+        <p>{{ item.name }} - KES {{ item.price }} (x{{ item.quantity }})</p>
+        <button (click)="cartService.removeItem(i)">Remove</button>
+      </div>
+
+      <strong>Total: KES {{ cartService.getTotal() }}</strong>
+    </div>
+  </div>
+</nav>

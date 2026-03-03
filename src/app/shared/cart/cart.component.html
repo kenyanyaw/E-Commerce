@@ -1,0 +1,19 @@
+<h2>Your Cart</h2>
+<div *ngIf="cartService.getCartItems().length === 0">
+  <p>Your cart is empty.</p>
+</div>
+
+<div *ngFor="let item of cartService.getCartItems(); let i = index" class="cart-item">
+  <div class="item-details">
+    <p>{{ item.name }} - KES {{ item.price }} (x{{ item.quantity }})</p>
+  </div>
+  <button (click)="cartService.removeItem(i)">Remove</button>
+</div>
+
+<div class="cart-summary">
+  <strong>Total: KES {{ cartService.getTotal() }}</strong>
+</div>
+
+<div class="checkout">
+  <button (click)="checkout()">Checkout</button>
+</div>
