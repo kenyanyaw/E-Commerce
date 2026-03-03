@@ -309,7 +309,7 @@ button {
 .hamburger.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
 /*Naviagtion Bar*/
 .nav-bar {
-  background: white;
+  background: #0E234E;
   position: relative;
   z-index: 900;
   display: none; /* shown ≥992px */

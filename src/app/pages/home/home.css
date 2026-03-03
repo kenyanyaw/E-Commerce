@@ -1,11 +1,10 @@
 /* ── HOST WRAPPER ── */
 .hero-slider-host {
-  font-family: 'Barlow', sans-serif;
-  background-color: #ffffff;
+  background-color: white;
   color: #2c2c2c;
   box-sizing: border-box;
+  display: none;
 }
-
 .hero-slider-host *,
 .hero-slider-host *::before,
 .hero-slider-host *::after {
@@ -13,20 +12,12 @@
   margin: 0;
   padding: 0;
 }
-
-/* ── TOP ORANGE BAR ── */
-.top-bar {
-  background-color: #F24B0F;
-  height: 5px;
-}
-
 /* ── HERO WRAPPER ── */
 .hero-wrapper {
   display: flex;
   height: 540px;
   overflow: hidden;
 }
-
 /* ── SLIDER AREA ── */
 .slider-area {
   flex: 1;
@@ -42,58 +33,40 @@
   height: 100%;
   transition: transform 0.65s cubic-bezier(0.77, 0, 0.18, 1);
 }
-
 /* ── INDIVIDUAL SLIDE ── */
 .slide {
   width: calc(100% / 3);
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 40px 60px;
-  gap: 50px;
+  padding: 40px 40px;
+  gap: 0;
   position: relative;
 }
 
-.slide-1 {
-  background-color: #f0f0f0;
-}
-
-.slide-2 {
-  background-color: #eaf4fb;
-}
-
-.slide-3 {
-  background-color: #fdf5e8;
-}
-
-/* ── SLIDE IMAGE ── */
+/* ── SLIDE IMAGE SIZE & CENTER ── */
 .slide-image {
-  flex: 0 0 auto;
+  flex: 0 0 50%;
+  width: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.slide-svg {
-  max-height: 340px;
-  max-width: 380px;
+.slide-image img {
+  max-height: 420px;
+  max-width: 100%;
   width: 100%;
+  object-fit: contain;
   filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.12));
   transition: transform 0.4s ease;
 }
 
-.slide-svg-phone {
-  max-height: 320px;
-  max-width: 220px;
-}
-
-.slide:hover .slide-svg {
-  transform: translateY(-6px) scale(1.02);
-}
-
 /* ── SLIDE TEXT ── */
 .slide-text {
-  flex: 1;
+  flex: 0 0 50%;
+  width: 50%;
+  padding-left: 30px;
 }
 
 .slide-eyebrow {
@@ -157,35 +130,15 @@
 
 /* ── SLIDE ANIMATIONS ── */
 @keyframes slideInText {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.slide.active .slide-eyebrow {
-  animation: slideInText 0.5s 0.1s both;
-}
-
-.slide.active .slide-title {
-  animation: slideInText 0.5s 0.22s both;
-}
-
-.slide.active .slide-terms {
-  animation: slideInText 0.5s 0.34s both;
-}
-
-.slide.active .btn-shop {
-  animation: slideInText 0.5s 0.44s both;
-}
-
-.slide.active .slide-image {
-  animation: slideInText 0.5s 0.05s both;
-}
+.slide.active .slide-eyebrow { animation: slideInText 0.5s 0.1s both; }
+.slide.active .slide-title { animation: slideInText 0.5s 0.22s both; }
+.slide.active .slide-terms { animation: slideInText 0.5s 0.34s both; }
+.slide.active .btn-shop { animation: slideInText 0.5s 0.44s both; }
+.slide.active .slide-image { animation: slideInText 0.5s 0.05s both; }
 
 /* ── DOT INDICATORS ── */
 .dots {
@@ -293,7 +246,7 @@
   margin-top: 38px;
 }
 
-.promo-svg {
+.promo-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -381,15 +334,13 @@
   border-right: 1px solid #e0e0e0;
 }
 
-.feature-item:last-child {
-  border-right: none;
-}
+.feature-item:last-child { border-right: none; }
 
 .feature-icon {
   width: 36px;
   height: 36px;
-  color: #F24B0F;
   flex-shrink: 0;
+  object-fit: contain;
 }
 
 .feature-title {
@@ -409,24 +360,18 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 1100px) {
-  .promo-panel {
-    width: 240px;
-  }
+  .promo-panel { width: 240px; }
+  .slide { padding: 30px 35px; gap: 30px; }
+  .slide-title { font-size: 40px; }
+  .features-bar { grid-template-columns: repeat(3, 1fr); }
+  .feature-item { border-bottom: 1px solid #e0e0e0; }
+}
 
-  .slide {
-    padding: 30px 35px;
-    gap: 30px;
-  }
-
-  .slide-title {
-    font-size: 40px;
-  }
-
-  .features-bar {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .feature-item {
-    border-bottom: 1px solid #e0e0e0;
-  }
+/* ── MOBILE STACKED LAYOUT ── */
+@media (max-width: 768px) {
+  .hero-wrapper { flex-direction: column; height: auto; }
+  .slider-area { width: 100%; height: 420px; }
+  .promo-panel { width: 100%; border-left: none; border-top: 1px solid #e0e0e0; }
+  .slide { flex-direction: column; text-align: center; gap: 20px; }
+  .slide-image img { max-width: 250px; max-height: 250px; }
 }

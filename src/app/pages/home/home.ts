@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-/**
+/**  
  * Represents a single hero slide entry.
  */
 export interface HeroSlide {
